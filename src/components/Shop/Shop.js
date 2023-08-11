@@ -9,7 +9,7 @@ const Shop = () => {
 
   useEffect(() => {
     const productList = async () => {
-      const resp = await axios.get("http://localhost:4000/");
+      const resp = await axios.get("https://xavier-backend.onrender.com/");
       const fetchProducts = resp.data.products;
       setProducts(fetchProducts);
     };

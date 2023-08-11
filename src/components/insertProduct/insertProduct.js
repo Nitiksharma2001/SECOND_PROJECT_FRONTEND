@@ -29,7 +29,7 @@ const Submit = async (e) =>{
   try{
     e.preventDefault();
     const productData = { name, description, price, countInStock, imageURL } 
-    const resp = await axios.post("http://localhost:4000/insert", productData);
+    const resp = await axios.post("https://xavier-backend.onrender.com/insert", productData);
     setProducts([...products, resp.data.product])
     navigation("/")
   }

@@ -8,7 +8,7 @@ const View = () => {
   const navigate = useNavigate();
   const makeCart = async (e) => {
     e.preventDefault();
-    const resp = await axios.post("http://localhost:4000/addtocart", product);
+    const resp = await axios.post("https://xavier-backend.onrender.com/addtocart", product);
     setCart([...cart, resp.data.cartProduct]);
     navigate("/cart");
   };

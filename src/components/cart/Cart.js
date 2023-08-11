@@ -10,7 +10,7 @@ const Cart = () => {
   var cntProductsPrice = 0, cntProducts = 0;
   useEffect(() => {
     const cartList = async () => {
-      const resp = await axios.get("http://localhost:4000/cart");
+      const resp = await axios.get("https://xavier-backend.onrender.com/cart");
       const fetchProduct = resp.data.products;
       setCart(fetchProduct)
     };
@@ -19,7 +19,7 @@ const Cart = () => {
 
   const deleteFromCart = async (product) =>{
     setCart(cart.filter((currProduct) => currProduct !== product ))
-    await axios.delete(`http://localhost:4000/${product._id}`)
+    await axios.delete(`https://xavier-backend.onrender.com/${product._id}`)
   }
   return (
     <>
