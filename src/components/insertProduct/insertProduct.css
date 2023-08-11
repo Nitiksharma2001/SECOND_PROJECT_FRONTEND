@@ -1,0 +1,9 @@
+.addItems{
+	position: absolute;
+	top: 30vh;
+	margin-left: 40vw;
+}
+.addItem{
+	color: blue;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,12 @@
+.product-cart img{
+	height: 80px;
+	width: 80px;
+	border-radius: 10px;
+}
+.btnn:hover{
+	cursor: pointer;
+}
+.btnn{
+	margin: 0;
+	padding: 0;
+}
