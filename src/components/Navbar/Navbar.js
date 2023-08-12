@@ -4,7 +4,7 @@ function TopNavbar() {
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
         <div className="container-fluid ">
-          <Link className="navbar-brand " to="/">Shopping</Link>
+          <Link className="navbar-brand " to="/">Xavier</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>

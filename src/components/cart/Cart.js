@@ -23,7 +23,7 @@ const Cart = () => {
   }
   return (
     <>
-      <h1>Shopping Cart</h1>
+      <h1>Xavier Cart</h1>
       {cart.map((product) => {
         cntProducts++;
         cntProductsPrice += product.price
