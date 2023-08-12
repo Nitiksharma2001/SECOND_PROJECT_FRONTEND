@@ -6,7 +6,7 @@ const View = () => {
   const { user, setUser } = useContext(UserContext);
   const [product, setProduct] = useState(null);
   const [added, setAdded] = useState(false);
-  const BASE_URL = "http://localhost:4000/";
+  const BASE_URL = "https://xavier-backend.onrender.com/";
   const id = useParams().id;
   useEffect(() => {
     if(!user){

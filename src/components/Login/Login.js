@@ -2,14 +2,13 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {UserContext} from "../context"
 
-const BASE_URL = "http://localhost:4000/";
+const BASE_URL = "https://xavier-backend.onrender.com/";
 const Login = () => {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate()
   const [email, setEmail] = useState("nitik@nitik.com");
   const [password, setPassword] = useState("nitik");
   const fetchLogin = () => {
-    console.log(email, password);
     if (email && password) {
       fetch(BASE_URL + "user/login", {
         method: "POST",

@@ -22,7 +22,7 @@ const [imageURL, setImageURL] = useState(tempData.imageUrl);
 
 const navigate = useNavigate()
 const {user, setUser} = useContext(UserContext);
-const BASE_URL = "http://localhost:4000/";
+const BASE_URL = "https://xavier-backend.onrender.com/";
 useEffect(() => {
   if(!user){
     const localUser = localStorage.getItem("user")

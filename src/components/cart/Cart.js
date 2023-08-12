@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import "./Cart.css";
 const Cart = () => {
   const [userCart, setUserCart] = useState(null)
-  const BASE_URL = "http://localhost:4000/";
+  const BASE_URL = "https://xavier-backend.onrender.com/";
   const { user } = useContext(UserContext);
   var cntProductsPrice = 0, cntProducts = 0;
   const deleteProduct = (id) => {

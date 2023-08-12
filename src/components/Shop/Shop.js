@@ -8,7 +8,7 @@ const Shop = () => {
   const { setUser } = useContext(UserContext);
 
   useEffect(() => {
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://xavier-backend.onrender.com/";
 
     fetch(BASE_URL, {
       method: "GET",

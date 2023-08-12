@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const BASE_URL = "http://localhost:4000/";
+const BASE_URL = "https://xavier-backend.onrender.com/";
 const Signup = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("nitik");
