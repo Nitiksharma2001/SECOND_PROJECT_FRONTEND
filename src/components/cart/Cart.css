@@ -1,7 +1,7 @@
-.product-cart img{
+.product-cart > img{
 	height: 80px;
 	width: 80px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 .btnn:hover{
 	cursor: pointer;

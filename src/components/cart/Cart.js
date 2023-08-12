@@ -1,41 +1,68 @@
-import React, {useContext } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { UserContext } from "../context";
-import axios from "axios"
-import DeleteIcon from '@mui/icons-material/Delete';
-import "./Cart.css"
+import DeleteIcon from "@mui/icons-material/Delete";
+import "./Cart.css";
 const Cart = () => {
-  const {cart, setCart} = useContext(UserContext);
-  
+  const [userCart, setUserCart] = useState(null)
+  const BASE_URL = "http://localhost:4000/";
+  const { user } = useContext(UserContext);
   var cntProductsPrice = 0, cntProducts = 0;
-  useEffect(() => {
-    const cartList = async () => {
-      const resp = await axios.get("https://xavier-backend.onrender.com/cart");
-      const fetchProduct = resp.data.products;
-      setCart(fetchProduct)
-    };
-    cartList();
-  }, []);
-
-  const deleteFromCart = async (product) =>{
-    setCart(cart.filter((currProduct) => currProduct !== product ))
-    await axios.delete(`https://xavier-backend.onrender.com/${product._id}`)
+  const deleteProduct = (id) => {
+    fetch(BASE_URL + "user/cart/"+id, {
+      method: "DELETE",
+      headers: {
+        'Authorization': `Bearer ${user.token}`,
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserCart(prev => {
+          return {...prev, cart: prev.cart.filter(product => product._id !== id) }
+        })
+      });
   }
+  useEffect(() => {
+    fetch(BASE_URL + "user/cart", {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${user.token}`,
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserCart(data)
+      });
+  }, [user]);
+
   return (
     <>
       <h1>Xavier Cart</h1>
-      {cart.map((product) => {
+      {userCart && userCart.cart.map((product) => {
         cntProducts++;
-        cntProductsPrice += product.price
-          return (
-              <div className="product-cart" style={{"display":"flex"}} key={product._id}>
-                <img src={product.imageURL} style={{"margin":"0 10px"}}/>
-                <div style={{display:"flex", "flexDirection":"column"}}>
-                  <div>{product.name}</div>
-                  <div>&#x20B9;{product.price}<span className="btnn" onClick={(e) => {e.preventDefault(); deleteFromCart(product)}}><DeleteIcon /></span></div>
-                </div>
+        cntProductsPrice += product.price;
+        return (
+          <div
+            className="product-cart"
+            style={{ display: "flex" }}
+            key={product._id}
+          >
+            <img src={product.imageURL} alt="error" style={{ margin: "0 10px" }} />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div>{product.name}</div>
+              <div>
+                &#x20B9;{product.price}
+                <span
+                  className="btnn"
+                  onClick={() => deleteProduct(product._id)}
+                >
+                  <DeleteIcon />
+                </span>
               </div>
-          ) 
+            </div>
+          </div>
+        );
       })}
       <div>
         <div>Subtotal : {cntProducts}</div>
@@ -43,8 +70,7 @@ const Cart = () => {
       </div>
       <button>Proceed to Checkout</button>
     </>
-  
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

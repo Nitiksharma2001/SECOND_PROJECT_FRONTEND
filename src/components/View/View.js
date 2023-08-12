@@ -1,31 +1,82 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { UserContext } from "../../components/context";
 import "./View.css";
-import { UserContext } from "../context";
-import axios from "axios";
 const View = () => {
-  const { product, cart, setCart } = useContext(UserContext);
-  const navigate = useNavigate();
-  const makeCart = async (e) => {
-    e.preventDefault();
-    const resp = await axios.post("https://xavier-backend.onrender.com/addtocart", product);
-    setCart([...cart, resp.data.cartProduct]);
-    navigate("/cart");
+  const { user, setUser } = useContext(UserContext);
+  const [product, setProduct] = useState(null);
+  const [added, setAdded] = useState(false);
+  const BASE_URL = "http://localhost:4000/";
+  const id = useParams().id;
+  useEffect(() => {
+    if(!user){
+      const localUser = localStorage.getItem("user")
+      if(localUser){
+        setUser(JSON.parse(localUser))
+      }
+    }
+    fetch(BASE_URL + "view/" + id, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data.product);
+      });
+  }, [id]);
+  const addToCart = async () => {
+    console.log(id);
+    fetch(BASE_URL + "user/" + id, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message) {
+          setAdded(true);
+        }
+      });
   };
   return (
-    <div className="single-product">
-      <div className="card" style={{ width: "22rem" }}>
-        <div className="card-body card-container">
-          <img src={product.imageURL} class="card-img-top img " />
-          <h5 className="card-title">{product.name}</h5>
-          <p className="card-text">{product.description}</p>
-          <h5 className="card-title">{product.price}&#8377;</h5>
-          <a onClick={(e) => makeCart(e)} className="btn btn-primary">
-            Add to Cart
-          </a>
+    <>
+      {product ? (
+        <div className="single-product">
+          <div className="card" style={{ width: "22rem" }}>
+            <div className="card-body card-container">
+              <img
+                src={product.imageURL}
+                alt="error"
+                className="card-img-top img "
+              />
+              <h5 className="card-title">{product.name}</h5>
+              <p className="card-text">{product.description}</p>
+              {user && (
+                <h5 className="card-title">
+                  {product.price}&#8377;
+                  {added ? (
+                    <button className="btn btn-primary">
+                      <>&#10003;</>
+                    </button>
+                  ) : (
+                    <button onClick={addToCart} className="btn btn-primary">
+                      Add To Cart
+                    </button>
+                  )}
+                </h5>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <h1>Loading........</h1>
+      )}
+    </>
   );
 };
 

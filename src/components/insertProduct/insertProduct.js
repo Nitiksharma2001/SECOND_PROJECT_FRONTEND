@@ -1,8 +1,7 @@
 import { useNavigate  } from "react-router-dom"
 import "./insertProduct.css"
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../context";
-import axios from "axios"
 
 const InsertProduct = () => {
 const tempData = {
@@ -21,48 +20,55 @@ const [price, setPrice] = useState(tempData.price);
 const [countInStock, setCountInStock] = useState(tempData.countInStock);
 const [imageURL, setImageURL] = useState(tempData.imageUrl);
 
-const navigation = useNavigate()
-
-const {products, setProducts} = useContext(UserContext);
-
-const Submit = async (e) =>{
-  try{
-    e.preventDefault();
-    const productData = { name, description, price, countInStock, imageURL } 
-    const resp = await axios.post("https://xavier-backend.onrender.com/insert", productData);
-    setProducts([...products, resp.data.product])
-    navigation("/")
+const navigate = useNavigate()
+const {user, setUser} = useContext(UserContext);
+const BASE_URL = "http://localhost:4000/";
+useEffect(() => {
+  if(!user){
+    const localUser = localStorage.getItem("user")
+    if(localUser){
+      setUser(JSON.parse(localUser))
+    }
   }
-  catch(err){
-    console.log(err);
-  }
+}, []);
+const Submit = () =>{
+  fetch(BASE_URL + "insert", {
+    method: "POST",
+    body:JSON.stringify({name, description, price, countInStock, imageURL}),
+    headers: {
+      'Authorization': `Bearer ${user.token}`,
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      navigate('/')
+    });
 }
   return (
 	<>
 	<div style={{maxWidth:"500px", margin: "30px auto"} }>
-		<form>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">Name</label>
-          <input type="text" value={name} onChange={(e) => {setName(e.target.value)}} className="form-control" id="name" aria-describedby="emailHelp" />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="description" className="form-label">Description</label>
-          <textarea value={description} onChange={(e) => {setDescription(e.target.value)}} className="form-control rounded-0" id="description" rows="5"></textarea>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="price" className="form-label">Price</label>
-          <input type="text" value={price} onChange={(e) => {setPrice(e.target.value)}} className="form-control" id="price" aria-describedby="emailHelp" />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="countInStock" className="form-label">CountInStock</label>
-          <input type="text" value={countInStock} onChange={(e) => {setCountInStock(e.target.value)}} className="form-control" id="countInStock" aria-describedby="emailHelp" />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="imageURL" className="form-label">ImageURL </label>
-          <input type="text" value={imageURL} onChange={(e) => {setImageURL (e.target.value)}} className="form-control" id="imageURL" aria-describedby="emailHelp" />
-        </div>
-        <button className="btn btn-primary" onClick={(e) => Submit(e)}>Submit</button>
-      </form>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">Name</label>
+        <input type="text" value={name} onChange={(e) => {setName(e.target.value)}} className="form-control" id="name" aria-describedby="emailHelp" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="description" className="form-label">Description</label>
+        <textarea value={description} onChange={(e) => {setDescription(e.target.value)}} className="form-control rounded-0" id="description" rows="5"></textarea>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="price" className="form-label">Price</label>
+        <input type="text" value={price} onChange={(e) => {setPrice(e.target.value)}} className="form-control" id="price" aria-describedby="emailHelp" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="countInStock" className="form-label">CountInStock</label>
+        <input type="text" value={countInStock} onChange={(e) => {setCountInStock(e.target.value)}} className="form-control" id="countInStock" aria-describedby="emailHelp" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="imageURL" className="form-label">ImageURL </label>
+        <input type="text" value={imageURL} onChange={(e) => {setImageURL (e.target.value)}} className="form-control" id="imageURL" aria-describedby="emailHelp" />
+      </div>
+      <button className="btn btn-primary" onClick={Submit}>Submit</button>
 	  </div>
 		
 	</>
