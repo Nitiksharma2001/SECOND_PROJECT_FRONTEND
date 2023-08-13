@@ -1,7 +1,7 @@
 # Xavier
 
 ### Table of Content: 📑
-Add a list of relative links that connect to other sections of the readme file. Ignore if your readme is not too long. But I will advise you to add this as your readme file may grow in length over time
+
 
 ### Live Link / Demo Link: 🔗
 [Client Side](https://xavier-frontend.onrender.com/ "Client Side")
@@ -12,7 +12,11 @@ Add a list of relative links that connect to other sections of the readme file. 
 A Full Stack E-commerce Shopping websites.
 
 ### Screenshots: 📷
-
+![main](https://github.com/Nitiksharma2001/Xavier-Frontend/assets/82705199/5975ba60-d52d-4365-9c2e-0783828e7113)
+![cart](https://github.com/Nitiksharma2001/Xavier-Frontend/assets/82705199/75292ec6-c849-4a94-a031-db05c61437c7)
+![product add](https://github.com/Nitiksharma2001/Xavier-Frontend/assets/82705199/f3ac88e7-c8a7-4dcd-856a-38991eeaba5e)
+![signout](https://github.com/Nitiksharma2001/Xavier-Frontend/assets/82705199/5af80bd9-884c-4703-b619-2ac6f97c4932)
+![login](https://github.com/Nitiksharma2001/Xavier-Frontend/assets/82705199/34e19fb3-2e39-4abe-8e6d-e102b32b6f29)
 
 ### Technologies Used: ☕️ 🐍 ⚛️
 1. *Frontend : *
