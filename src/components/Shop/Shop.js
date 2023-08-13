@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../context";
 import "./Shop.css";
+import Productshop from "./Productshop";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
 
   useEffect(() => {
-    
-
     fetch(`${process.env.REACT_APP_SERVER_URL}/`, {
       method: "GET",
       headers: {
@@ -34,29 +33,7 @@ const Shop = () => {
           <div className="products-list">
             {products.map((currProduct) => {
               return (
-                <div
-                  className="card"
-                  style={{ width: "22rem" }}
-                  key={currProduct._id}
-                >
-                  <div className="card-body">
-                    <img
-                      src={currProduct.imageURL}
-                      alt="error"
-                      className="card-img-top img "
-                    />
-                    <h5 className="card-title">{currProduct.name}</h5>
-                    <p className="card-text">{currProduct.description}</p>
-                    <h5 className="card-title">${currProduct.price};</h5>
-                    
-                    <Link
-                      to={`/view/${currProduct._id}`}
-                      className="btn btn-primary"
-                    >
-                      View
-                    </Link>
-                  </div>
-                </div>
+                <Productshop currProduct={currProduct}/>
               );
             })}
           </div>
