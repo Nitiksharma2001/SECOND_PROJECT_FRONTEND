@@ -34,7 +34,7 @@ const Login = () => {
           <label htmlFor="description" className="form-label">Password</label>
           <input type='password' value={password} onChange={(e) => {setPassword(e.target.value)}} className="form-control rounded-0" id="description" rows="5"/>
         </div>
-        <button className="btn btn-primary" onClick={fetchLogin}>Submit</button>
+        <button className="btn btn-primary" onClick={fetchLogin}>Login</button>
 	  </div>
   );
 };

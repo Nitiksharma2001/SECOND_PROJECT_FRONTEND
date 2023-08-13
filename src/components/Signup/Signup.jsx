@@ -70,7 +70,7 @@ const Signup = () => {
         />
       </div>
       <button className="btn btn-primary" onClick={fetchLogin}>
-        Submit
+        SignUp
       </button>
     </div>
   );

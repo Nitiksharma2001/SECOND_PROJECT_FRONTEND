@@ -68,7 +68,7 @@ const Cart = () => {
         <div>Subtotal : {cntProducts}</div>
         &#x20B9;{cntProductsPrice}
       </div>
-      <button>Proceed to Checkout</button>
+      <button className="btn btn-primary">Proceed to Checkout</button>
     </>
   );
 };
