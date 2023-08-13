@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {UserContext} from "../context"
 
-const BASE_URL = "https://xavier-backend.onrender.com/";
 const Login = () => {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate()
@@ -10,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("nitik");
   const fetchLogin = () => {
     if (email && password) {
-      fetch(BASE_URL + "user/login", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/user/login`, {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {

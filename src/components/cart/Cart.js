@@ -4,11 +4,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import "./Cart.css";
 const Cart = () => {
   const [userCart, setUserCart] = useState(null)
-  const BASE_URL = "https://xavier-backend.onrender.com/";
+  
   const { user } = useContext(UserContext);
   var cntProductsPrice = 0, cntProducts = 0;
   const deleteProduct = (id) => {
-    fetch(BASE_URL + "user/cart/"+id, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/user/cart/${id}`, {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${user.token}`,
@@ -23,7 +23,7 @@ const Cart = () => {
       });
   }
   useEffect(() => {
-    fetch(BASE_URL + "user/cart", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/user/cart`, {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${user.token}`,

@@ -6,7 +6,7 @@ const View = () => {
   const { user, setUser } = useContext(UserContext);
   const [product, setProduct] = useState(null);
   const [added, setAdded] = useState(false);
-  const BASE_URL = "https://xavier-backend.onrender.com/";
+  
   const id = useParams().id;
   useEffect(() => {
     if(!user){
@@ -15,7 +15,7 @@ const View = () => {
         setUser(JSON.parse(localUser))
       }
     }
-    fetch(BASE_URL + "view/" + id, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/view/${id}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -27,8 +27,7 @@ const View = () => {
       });
   }, [id]);
   const addToCart = async () => {
-    console.log(id);
-    fetch(BASE_URL + "user/" + id, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/user/${id}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -37,7 +36,6 @@ const View = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.message) {
           setAdded(true);
         }

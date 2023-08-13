@@ -8,9 +8,9 @@ const Shop = () => {
   const { setUser } = useContext(UserContext);
 
   useEffect(() => {
-    const BASE_URL = "https://xavier-backend.onrender.com/";
+    
 
-    fetch(BASE_URL, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",

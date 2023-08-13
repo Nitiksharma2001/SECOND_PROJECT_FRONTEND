@@ -22,7 +22,7 @@ const [imageURL, setImageURL] = useState(tempData.imageUrl);
 
 const navigate = useNavigate()
 const {user, setUser} = useContext(UserContext);
-const BASE_URL = "https://xavier-backend.onrender.com/";
+
 useEffect(() => {
   if(!user){
     const localUser = localStorage.getItem("user")
@@ -32,7 +32,7 @@ useEffect(() => {
   }
 }, []);
 const Submit = () =>{
-  fetch(BASE_URL + "insert", {
+  fetch(`${process.env.REACT_APP_SERVER_URL}/insert`, {
     method: "POST",
     body:JSON.stringify({name, description, price, countInStock, imageURL}),
     headers: {
