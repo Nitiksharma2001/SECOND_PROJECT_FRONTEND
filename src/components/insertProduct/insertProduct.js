@@ -29,6 +29,9 @@ useEffect(() => {
     if(localUser){
       setUser(JSON.parse(localUser))
     }
+    else{
+      navigate('/')
+    }
   }
 }, []);
 const Submit = () =>{

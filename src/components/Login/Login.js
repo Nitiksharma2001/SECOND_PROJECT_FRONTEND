@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {UserContext} from "../context"
 
@@ -7,6 +7,12 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("nitik@nitik.com");
   const [password, setPassword] = useState("nitik");
+  useEffect(() => {
+    const localUser = localStorage.getItem("user")
+    if(localUser){
+      navigate('/')
+    }
+  },[])
   const fetchLogin = () => {
     if (email && password) {
       fetch(`${process.env.REACT_APP_SERVER_URL}/user/login`, {
