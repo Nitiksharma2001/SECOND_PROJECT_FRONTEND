@@ -35,7 +35,7 @@ useEffect(() => {
   }
 }, []);
 const Submit = () =>{
-  fetch(`${process.env.REACT_APP_SERVER_URL}/insert`, {
+  fetch(`${process.env.REACT_APP_SERVER}/products`, {
     method: "POST",
     body:JSON.stringify({name, description, price, countInStock, imageURL}),
     headers: {

@@ -15,9 +15,8 @@ const Login = () => {
   },[])
   const fetchLogin = () => {
     if (email && password) {
-      fetch(`${process.env.REACT_APP_SERVER_URL}/user/login`, {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
+      fetch(`${process.env.REACT_APP_SERVER}/auth/?email=${email}&password=${password}`, {
+        method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
@@ -25,7 +24,7 @@ const Login = () => {
         .then((res) => res.json())
         .then((data) => {
           setUser(data)
-          localStorage.setItem("user", JSON.stringify(data))
+          localStorage.setItem("user", JSON.stringify(data.data))
           navigate('/')
         });
     }

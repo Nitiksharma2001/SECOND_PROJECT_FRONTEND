@@ -9,7 +9,7 @@ const Shop = () => {
   const { setUser } = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/`, {
+    fetch(`${process.env.REACT_APP_SERVER}/products`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -21,7 +21,7 @@ const Shop = () => {
         if (user) {
           setUser(JSON.parse(user));
         }
-        setProducts(data.products);
+        setProducts(data.data);
       });
   }, []);
 

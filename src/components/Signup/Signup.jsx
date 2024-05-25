@@ -8,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState("nitik");
   const fetchLogin = () => {
     if (name && email && password) {
-      fetch(`${process.env.REACT_APP_SERVER_URL}/user/signup`, {
+      fetch(`${process.env.REACT_APP_SERVER}/auth`, {
         method: "POST",
         body: JSON.stringify({ name, email, password }),
         headers: {

@@ -16,7 +16,7 @@ const View = () => {
         setUser(JSON.parse(localUser))
       }
     }
-    fetch(`${process.env.REACT_APP_SERVER_URL}/view/${id}`, {
+    fetch(`${process.env.REACT_APP_SERVER}/products/${id}`, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -24,7 +24,7 @@ const View = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data.product)
+        setProduct(data.data)
       })
   }, [id])
   

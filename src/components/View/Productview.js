@@ -2,8 +2,9 @@ import React from 'react'
 
 const Productview = ({ product, user, added, setAdded, id }) => {
   const addToCart = async () => {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/user/${id}`, {
-      method: 'POST',
+    console.log(user.token)
+    fetch(`${process.env.REACT_APP_SERVER}/cart/${id}`, {
+      method: 'PUT',
       headers: {
         Authorization: `Bearer ${user.token}`,
         'Content-type': 'application/json; charset=UTF-8',
@@ -24,7 +25,7 @@ const Productview = ({ product, user, added, setAdded, id }) => {
           <h5 className='card-title'>{product.name}</h5>
           <p className='card-text'>{product.description}</p>
           <h5 className='card-title'>{product.price}&#8377;</h5>
-          {user && added ? (
+          {user && (added ? (
             <button className='btn btn-primary'>
               <>&#10003;</>
             </button>
@@ -32,7 +33,7 @@ const Productview = ({ product, user, added, setAdded, id }) => {
             <button onClick={addToCart} className='btn btn-primary'>
               Add To Cart
             </button>
-          )}
+          ))}
         </div>
       </div>
     </div>

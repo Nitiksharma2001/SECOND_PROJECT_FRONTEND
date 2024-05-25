@@ -41,4 +41,4 @@ A Full Stack E-commerce Shopping website.
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`REACT_APP_SERVER_URL='https://xavier-backend.onrender.com'`
+`REACT_APP_SERVER='https://xavier-backend.onrender.com'`

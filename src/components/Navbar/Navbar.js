@@ -19,9 +19,9 @@ function TopNavbar() {
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="navbar-nav ">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/insert">{user && "Insert"}</Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">{user && "Cart"}</Link>
               </li>		
