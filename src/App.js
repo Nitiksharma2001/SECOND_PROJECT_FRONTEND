@@ -1,24 +1,22 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
-import Shop from './components/Shop/Shop'
-import Cart from './components/cart/Cart'
-import View from './components/View/View'
-import InsertProduct from './components/insertProduct/insertProduct'
-import Login from './components/Login/Login'
-import Signup from './components/Signup/Signup'
-import NotFound from './Pages/NotFound'
+import Cart from './Pages/Cart/Cart'
+import Product from './Pages/Products/Product/Product'
+import Signin from './Pages/Auth/Signin/Signin'
+import Signup from './Pages/Auth/Signup/Signup'
+import NotFound from './Pages/NotFound/NotFound'
+import Navbar from './Layouts/Navbar/Navbar'
+import Products from "./Pages/Products/Products"
 function App() {
   return (
     <>
       <Navbar />
-      <div style={{ height: 'calc(100vh - 56px)' }}>
+      <div className='h-[calc(100%-56px)]'>
         <Routes>
-          <Route path='/' element={<Shop />} />
-          <Route path='/user/login' element={<Login />} />
-          <Route path='/user/signup' element={<Signup />} />
-          <Route path='/insert' element={<InsertProduct />} />
-          <Route path='/view/:id' element={<View />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/products/:id' element={<Product />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

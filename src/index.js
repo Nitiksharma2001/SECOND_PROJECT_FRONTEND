@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import { MakeContext } from './components/context'
-import "./index.css"
+import { MakeContext } from './Store/context'
+import './index.css'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-<BrowserRouter>
+  <BrowserRouter>
     <MakeContext>
       <App />
     </MakeContext>
