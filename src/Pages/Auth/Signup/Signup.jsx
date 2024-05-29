@@ -1,14 +1,16 @@
-import React, { useContext, useReducer, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../../../Components/Button/Button'
 import SPInput from '../../../Components/Input/SPInput'
-import { UserContext } from '../../../Store/context'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import SPLink from '../../../Components/Link/SPLink'
+import authImage from '../../../Assets/authImage.png'
+import ShowSnackbar from '../../../Helper/ShowSnackbar'
+import SPSnackBar from '../../../Components/SnackBar/SPSnackBar'
 
 const Signup = () => {
   const navigate = useNavigate()
-  const { setLoggedInUser } = useContext(UserContext)
-
+  const {isVisible, showSnackBar} = ShowSnackbar()
+  const [snackText, setSnackText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   const [userData, setUserData] = useState({
@@ -28,7 +30,9 @@ const Signup = () => {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      const { data } = await result.json()
+      const { message } = await result.json()
+      setSnackText(message)
+      showSnackBar()
       navigate('/signin')
     } finally {
       setIsLoading(false)
@@ -38,7 +42,7 @@ const Signup = () => {
   return (
     <main className='flex justify-center items-center h-full'>
       <div className='flex flex-col gap-4'>
-        <img className='h-60' src='/authImage.png' alt='' />
+        <img className='h-60' src={authImage} alt='' />
         <section className='flex flex-col'>
           <SPInput
             inputName='Name'
@@ -70,6 +74,7 @@ const Signup = () => {
         />
         <SPLink redirectTo='/signin'>Already Have an Account...?</SPLink>
       </div>
+      <SPSnackBar text={snackText} isVisible={isVisible} />
     </main>
   )
 }

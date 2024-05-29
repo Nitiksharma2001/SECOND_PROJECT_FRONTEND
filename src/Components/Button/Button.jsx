@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SPColors } from '../../Utils/colors'
+import SPButtonPrimary from './SPButtonPrimary'
 
 export const Button = ({
   buttonName,
@@ -8,15 +9,26 @@ export const Button = ({
   type = 'PRIMARY',
   isLoading = false,
 }) => {
+  const [showImg, setShowImg] = useState(false)
+
+  const showImgEventHandler = (time = 1000) => {
+    setShowImg(true)
+    setTimeout(() => {
+      setShowImg(false)
+      eventHandler()
+    }, time)
+  }
+
   switch (type) {
     case 'PRIMARY':
       return (
-        <button
-          onClick={eventHandler}
-          className={`text-white px-6 py-2 text-xl ${color.color} rounded-sm font-bold hover:cursor-pointer hover:${color.hover}`}
-        >
-          {buttonName}
-        </button>
+        <SPButtonPrimary
+          showImg={showImg}
+          showImgEventHandler={showImgEventHandler}
+          buttonName={buttonName}
+          color={color}
+          isLoading={isLoading}
+        />
       )
   }
 }

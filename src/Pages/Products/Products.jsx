@@ -2,30 +2,42 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProductCard from '../../Components/Card/ProductCard'
 import { ColorRing } from 'react-loader-spinner'
-import FetchProducts from '../../Hooks/FetchProducts'
+import FetchProducts from '../../Hooks/Products/FetchProducts'
+import SPSnackBar from '../../Components/SnackBar/SPSnackBar'
+import ShowSnackbar from '../../Helper/ShowSnackbar'
 const Products = () => {
-  const products = FetchProducts()
+  const result = FetchProducts()
+  const { finalData: products, isLoading, message } = result
   const navigate = useNavigate()
 
+  const { isVisible, showSnackBar } = ShowSnackbar()
+
+  useEffect(() => {
+    if(!isLoading) {
+      showSnackBar()
+    }
+
+  }, [isLoading])
 
   return (
     <main className='h-full'>
       {products && (
         <section className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 justify-items-center gap-y-8 gap-x-0 lg:grid-cols-3'>
-          {products.map((currProduct) => {
+          {products.map((product) => {
             return (
               <ProductCard
+                key={product._id}
                 eventHandler={() => {
-                  navigate(`/products/${currProduct._id}`)
+                  navigate(`/products/${product._id}`)
                 }}
-                product={currProduct}
+                product={product}
               />
             )
           })}
         </section>
       )}
 
-      {!products && (
+      {isLoading && (
         <section className='flex justify-items-center items-center h-full'>
           <ColorRing
             width='100%'
@@ -35,6 +47,8 @@ const Products = () => {
           />
         </section>
       )}
+
+      <SPSnackBar text={message} isVisible={isVisible}  />
     </main>
   )
 }

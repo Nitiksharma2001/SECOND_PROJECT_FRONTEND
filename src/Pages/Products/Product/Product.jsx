@@ -1,10 +1,10 @@
 import ProductCard from '../../../Components/Card/ProductCard'
-import FetchProduct from '../../../Hooks/FetchProduct'
+import FetchProduct from '../../../Hooks/Products/FetchProduct'
 import { useParams } from 'react-router-dom'
 import { ColorRing } from 'react-loader-spinner'
 const Product = () => {
   const { id } = useParams()
-  const product = FetchProduct(id)
+  const { finalData: product, isLoading, message } = FetchProduct(id)
 
   return (
     <>

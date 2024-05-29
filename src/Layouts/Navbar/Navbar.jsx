@@ -35,7 +35,7 @@ function Navbar() {
   return (
     <nav className='flex justify-between items-center py-2 px-5 bg-white text-black mb-4 sticky top-0 z-10'>
       <section className='flex justify-center items-center hover:cursor-pointer'>
-        <img src='/companyLogo.png' className='w-10 mr-2' />
+        <img src='/companyLogo.png' className='w-10 mr-2' alt='sorry'/>
         <Link to='/products' className='hover:text-blue-600 font-bold text-3xl'>
           Ecommerce
         </Link>
@@ -65,7 +65,7 @@ function Navbar() {
                 (button.authRequired && loggedInUser))
           )
           .map((button) => (
-            <Button buttonName={button.buttonName} eventHandler={button.eventHandler} />
+            <Button key={button.buttonName} buttonName={button.buttonName} eventHandler={button.eventHandler} />
           ))}
       </section>
     </nav>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../Store/context'
+import { UserContext } from '../../Store/context'
 
 const FetchCart = () => {
   const [cartItems, setCartItems] = useState(null)

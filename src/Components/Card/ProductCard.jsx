@@ -10,21 +10,28 @@ const ProductCard = ({ product, eventHandler, hover = true }) => {
 
   const { loggedInUser } = useContext(UserContext)
 
+  const [isAddedToCart, setIsAddedToCart] = useState(false)
+
   const addToCart = async () => {
-    const result = await axios.put(
-      `${process.env.REACT_APP_SERVER}/cart/${product._id}`, {},
-      {
-        headers: {
-          Authorization: `Bearer ${loggedInUser.token}`,
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      }
-    )
-    console.log(addToCart)
+    setIsAddedToCart(true)
+    try {
+      await axios.put(
+        `${process.env.REACT_APP_SERVER}/cart/${product._id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${loggedInUser.token}`,
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      )
+    } finally {
+      setIsAddedToCart(false)
+    }
   }
 
   return (
-    <main className='flex hover:scale-105 duration-150 ease-in flex-col gap-3 w-80 rounded-lg  p-4 shadow-lg'>
+    <main className='flex hover:scale-105 duration-150 ease-in flex-col gap-3 w-86 rounded-lg p-4 shadow-lg w-[21rem]'>
       <img
         className='h-56 rounded object-cover hover:cursor-pointer'
         src={product.imageURL}
@@ -35,7 +42,7 @@ const ProductCard = ({ product, eventHandler, hover = true }) => {
       <p className='text-1xl text-justify'>
         {product.description.substring(0, 200) + '.....'}
       </p>
-      <div className='flex justify-between items-center text-2xl transfor'>
+      <div className='flex flex-col w-full items-stretch gap-2 text-2xl transfor'>
         <span
           className='font-bold text-pink-500'
           onMouseEnter={() => setIsHovered(true)}
@@ -46,6 +53,7 @@ const ProductCard = ({ product, eventHandler, hover = true }) => {
         <Button
           eventHandler={addToCart}
           buttonName='Add To Cart'
+          isLoading={isAddedToCart}
           type='PRIMARY'
         />
       </div>

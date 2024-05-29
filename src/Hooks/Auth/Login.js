@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { UserContext } from '../Store/context'
+import { UserContext } from '../../Store/context'
 import { useNavigate } from 'react-router-dom'
 
 const Login = (email, password) => {

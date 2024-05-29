@@ -1,15 +1,23 @@
 import React from 'react'
 import SPImg from '../../Components/Image/SPImg'
-import FetchCart from '../../Hooks/FetchCart'
+import FetchCart from '../../Hooks/Cart/FetchCart'
 import CartCard from '../../Components/Card/CartCard'
+import cartImage from '../../Assets/cartImage.png'
+
 const Cart = () => {
   const { cartItems, deleteEventHandler } = FetchCart()
 
+  const totalPrice =
+    cartItems &&
+    cartItems.reduce((accumulator, item) => {
+      return (accumulator += item.price)
+    }, 0)
+
   return (
-    <main className='flex h-full'>
-      <section className='flex flex-col items-center gap-4 mx-8'>
+    <main className='flex flex-col h-full mx-8 gap-4'>
+      <section className='flex flex-col items-center gap-4 '>
         <div>
-          <SPImg height={'h-52'} width='w-40' imageSrc={'/cartImage.png'} />
+          <SPImg height={'h-52'} width='w-40' imageSrc={cartImage} />
         </div>
         <section className='grow-1 flex flex-col gap-4'>
           {cartItems &&
@@ -22,6 +30,11 @@ const Cart = () => {
               )
             })}
         </section>
+      </section>
+      <section className='text-3xl font-extrabold underline text-purple-600 w-full text-right'>
+        <h1>
+          Total Price is: <span className='text-4xl'>${totalPrice}</span>
+        </h1>
       </section>
     </main>
   )

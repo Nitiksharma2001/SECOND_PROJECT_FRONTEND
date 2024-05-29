@@ -41,6 +41,7 @@
     "classnames": "^2.5.1",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
+    "react-lazy-load-image-component": "^1.6.0",
     "react-loader-spinner": "^6.1.6"
   }
 }
