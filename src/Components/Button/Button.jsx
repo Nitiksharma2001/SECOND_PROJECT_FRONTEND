@@ -13,9 +13,9 @@ export const Button = ({
 
   const showImgEventHandler = (time = 1000) => {
     setShowImg(true)
+    eventHandler()
     setTimeout(() => {
       setShowImg(false)
-      eventHandler()
     }, time)
   }
 

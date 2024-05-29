@@ -1,5 +1,4 @@
 import Happy from '../../Assets/happy.png'
-import Sad from '../../Assets/sad.png'
 import { constants } from '../../Utils/constants'
 const SPButtonPrimary = ({
   showImg,
@@ -9,18 +8,8 @@ const SPButtonPrimary = ({
   color,
 }) => (
   <div className='flex flex-col items-center relative'>
-    {showImg && (buttonName === constants.ADD_TO_CART || buttonName === constants.REMOVE_FROM_CART) && (
-      <img
-        src={
-          buttonName === constants.ADD_TO_CART
-            ? Happy
-            : buttonName === constants.REMOVE_FROM_CART
-              ? Sad
-              : ''
-        }
-        alt='sorry'
-        className='w-24 absolute bottom-0'
-      />
+    {showImg && buttonName === constants.ADD_TO_CART && (
+      <img src={Happy} alt='sorry' className='w-24 absolute bottom-0' />
     )}
     <button
       onClick={() => showImgEventHandler()}

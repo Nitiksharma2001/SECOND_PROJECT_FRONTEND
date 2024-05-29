@@ -60,6 +60,7 @@ const Signup = () => {
           />
           <SPInput
             inputName='Password'
+            type='PASSWORD'
             value={userData.password}
             onChangeEvent={(e) =>
               setUserData({ ...userData, [e.target.name]: e.target.value })

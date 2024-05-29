@@ -49,6 +49,7 @@ const Signin = () => {
             />
             <SPInput
               inputName='Password'
+              type='PASSWORD'
               value={password}
               onChangeEvent={(e) => setPassword(e.target.value)}
             />

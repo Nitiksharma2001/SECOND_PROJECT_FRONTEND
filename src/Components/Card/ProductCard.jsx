@@ -3,16 +3,22 @@ import Button from '../Button/Button'
 import { UserContext } from '../../Store/context'
 import { currencyFormatter } from '../../Utils/currencyFormatter'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({ product, eventHandler, hover = true }) => {
   const [isHovered, setIsHovered] = useState(false)
   const { conversionRate } = useContext(UserContext)
+
+  const navigate = useNavigate()
 
   const { loggedInUser } = useContext(UserContext)
 
   const [isAddedToCart, setIsAddedToCart] = useState(false)
 
   const addToCart = async () => {
+    if(!loggedInUser){
+      return navigate('/signin')
+    }
     setIsAddedToCart(true)
     try {
       await axios.put(

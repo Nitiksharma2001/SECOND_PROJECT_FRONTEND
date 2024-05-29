@@ -16,10 +16,8 @@ const Cart = () => {
   return (
     <main className='flex flex-col h-full mx-8 gap-4'>
       <section className='flex flex-col items-center gap-4 '>
-        <div>
           <SPImg height={'h-52'} width='w-40' imageSrc={cartImage} />
-        </div>
-        <section className='grow-1 flex flex-col gap-4'>
+        <section className='grow-1 flex flex-col gap-4 w-full items-center'>
           {cartItems &&
             cartItems.map((cartItem) => {
               return (
@@ -31,7 +29,7 @@ const Cart = () => {
             })}
         </section>
       </section>
-      <section className='text-3xl font-extrabold underline text-purple-600 w-full text-right'>
+      <section className='text-3xl font-extrabold underline text-purple-600 w-full text-center'>
         <h1>
           Total Price is: <span className='text-4xl'>${totalPrice}</span>
         </h1>
