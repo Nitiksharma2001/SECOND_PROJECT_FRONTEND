@@ -16,7 +16,7 @@ const ProductCard = ({ product, eventHandler, hover = true }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false)
 
   const addToCart = async () => {
-    if(!loggedInUser){
+    if (!loggedInUser) {
       return navigate('/signin')
     }
     setIsAddedToCart(true)
@@ -45,9 +45,7 @@ const ProductCard = ({ product, eventHandler, hover = true }) => {
         alt='/imageNotExist.png'
       />
       <h1 className='font-extrabold text-3xl '>{product.name}</h1>
-      <p className='text-1xl text-justify'>
-        {product.description.substring(0, 200) + '.....'}
-      </p>
+      <p className='text-1xl text-justify'>{product.description.substring(0, 200) + '.....'}</p>
       <div className='flex flex-col w-full items-stretch gap-2 text-2xl transfor'>
         <span
           className='font-bold text-pink-500'

@@ -6,7 +6,7 @@ import Signin from './Pages/Auth/Signin/Signin'
 import Signup from './Pages/Auth/Signup/Signup'
 import NotFound from './Pages/NotFound/NotFound'
 import Navbar from './Layouts/Navbar/Navbar'
-import Products from "./Pages/Products/Products"
+import Products from './Pages/Products/Products'
 import SPCalendar from './Components/Calendar/SPCalendar'
 function App() {
   return (
@@ -14,14 +14,38 @@ function App() {
       <Navbar />
       <div className='h-[calc(100%-56px)]'>
         <Routes>
-          <Route path='/' element={<Products />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/products/:id' element={<Product />} />
-          <Route path='/signin' element={<Signin />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/calendar' element={<SPCalendar />} />
-          <Route path='*' element={<NotFound />} />
+          <Route
+            path='/'
+            element={<Products />}
+          />
+          <Route
+            path='/products'
+            element={<Products />}
+          />
+          <Route
+            path='/products/:id'
+            element={<Product />}
+          />
+          <Route
+            path='/signin'
+            element={<Signin />}
+          />
+          <Route
+            path='/signup'
+            element={<Signup />}
+          />
+          <Route
+            path='/cart'
+            element={<Cart />}
+          />
+          <Route
+            path='/calendar'
+            element={<SPCalendar />}
+          />
+          <Route
+            path='*'
+            element={<NotFound />}
+          />
         </Routes>
       </div>
     </>

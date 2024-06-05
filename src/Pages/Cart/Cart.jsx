@@ -16,7 +16,11 @@ const Cart = () => {
   return (
     <main className='flex flex-col h-full mx-8 gap-4'>
       <section className='flex flex-col items-center gap-4 '>
-          <SPImg height={'h-52'} width='w-40' imageSrc={cartImage} />
+        <SPImg
+          height={'h-52'}
+          width='w-40'
+          imageSrc={cartImage}
+        />
         <section className='grow-1 flex flex-col gap-4 w-full items-center'>
           {cartItems &&
             cartItems.map((cartItem) => {

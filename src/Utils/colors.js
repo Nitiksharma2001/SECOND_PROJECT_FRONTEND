@@ -1,4 +1,3 @@
-
 export const SPColors = {
   SPRed: { color: 'bg-red-500', hover: 'bg-red-600' },
   SPPurple: { color: 'bg-purple-500', hover: 'bg-purple-600' },

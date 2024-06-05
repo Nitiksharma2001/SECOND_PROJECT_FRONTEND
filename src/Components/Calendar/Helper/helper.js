@@ -5,9 +5,7 @@ export const datesComponents = (currentDate) => {
   const date = new CustomDateVariables(currentDate)
   let dates = new Array(
     Math.min(
-      date.totalDaysInMonth + date.currentDay <= 35
-        ? date.totalDaysInMonth
-        : 35 - date.currentDay
+      date.totalDaysInMonth + date.currentDay <= 35 ? date.totalDaysInMonth : 35 - date.currentDay
     )
   )
     .fill(0)

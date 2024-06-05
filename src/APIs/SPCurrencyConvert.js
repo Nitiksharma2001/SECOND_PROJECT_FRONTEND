@@ -5,7 +5,6 @@ const SPCurrencyConvert = async (sourceCode = 'USD', destCode = 'INR') => {
   const { conversion_rate } = await result.json()
 
   return conversion_rate
-
 }
 
 export default SPCurrencyConvert

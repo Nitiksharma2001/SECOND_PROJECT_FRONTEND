@@ -9,7 +9,7 @@ import SPSnackBar from '../../../Components/UI/SnackBar/SPSnackBar'
 
 const Signup = () => {
   const navigate = useNavigate()
-  const {isVisible, showSnackBar} = ShowSnackbar()
+  const { isVisible, showSnackBar } = ShowSnackbar()
   const [snackText, setSnackText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
@@ -42,29 +42,27 @@ const Signup = () => {
   return (
     <main className='flex justify-center items-center h-full'>
       <div className='flex flex-col gap-4'>
-        <img className='h-60' src={authImage} alt='' />
+        <img
+          className='h-60'
+          src={authImage}
+          alt=''
+        />
         <section className='flex flex-col'>
           <SPInput
             inputName='Name'
             value={userData.name}
-            onChangeEvent={(e) =>
-              setUserData({ ...userData, [e.target.name]: e.target.value })
-            }
+            onChangeEvent={(e) => setUserData({ ...userData, [e.target.name]: e.target.value })}
           />
           <SPInput
             inputName='Email'
             value={userData.email}
-            onChangeEvent={(e) =>
-              setUserData({ ...userData, [e.target.name]: e.target.value })
-            }
+            onChangeEvent={(e) => setUserData({ ...userData, [e.target.name]: e.target.value })}
           />
           <SPInput
             inputName='Password'
             type='PASSWORD'
             value={userData.password}
-            onChangeEvent={(e) =>
-              setUserData({ ...userData, [e.target.name]: e.target.value })
-            }
+            onChangeEvent={(e) => setUserData({ ...userData, [e.target.name]: e.target.value })}
           />
         </section>
         <Button
@@ -75,7 +73,10 @@ const Signup = () => {
         />
         <SPLink redirectTo='/signin'>Already Have an Account...?</SPLink>
       </div>
-      <SPSnackBar text={snackText} isVisible={isVisible} />
+      <SPSnackBar
+        text={snackText}
+        isVisible={isVisible}
+      />
     </main>
   )
 }

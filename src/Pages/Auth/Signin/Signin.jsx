@@ -10,7 +10,7 @@ import authImage from '../../../Assets/authImage.png'
 
 const Signin = () => {
   const { setLoggedInUser } = useContext(UserContext)
-  const {isVisible, showSnackBar} = ShowSnackBar()
+  const { isVisible, showSnackBar } = ShowSnackBar()
   const navigate = useNavigate()
   const [snackText, setSnackText] = useState('')
   const [email, setEmail] = useState('')
@@ -39,7 +39,11 @@ const Signin = () => {
   return (
     <main className='flex justify-center items-center h-full'>
       <div className='flex flex-col gap-2'>
-        <img className='h-60' src={authImage} alt='' />
+        <img
+          className='h-60'
+          src={authImage}
+          alt=''
+        />
         <section>
           <div className='flex flex-col my-4'>
             <SPInput
@@ -63,7 +67,10 @@ const Signin = () => {
         />
         <SPLink redirectTo='/signup'>New User...?</SPLink>
       </div>
-      <SPSnackBar text={snackText} isVisible={isVisible} />
+      <SPSnackBar
+        text={snackText}
+        isVisible={isVisible}
+      />
     </main>
   )
 }

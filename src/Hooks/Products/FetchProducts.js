@@ -9,4 +9,4 @@ const fetchProducts = async () => {
   })
   return await result.json()
 }
-export default () => TryCatch({fetchData: fetchProducts})
+export default () => TryCatch({ fetchData: fetchProducts })

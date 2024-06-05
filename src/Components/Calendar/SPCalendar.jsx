@@ -32,18 +32,28 @@ const SPCalendar = () => {
     <main className='flex justify-center items-center h-full'>
       <main className='w-[50%] '>
         <section className='flex justify-between mx-3'>
-          <Button buttonName={'Prev'} eventHandler={onPrev} />
+          <Button
+            buttonName={'Prev'}
+            eventHandler={onPrev}
+          />
           <div className='text-2xl font-bold'>
-            <span>{monthsNames[currentDate.month]}</span>{' '}
-            <span>{currentDate.year}</span>
+            <span>{monthsNames[currentDate.month]}</span> <span>{currentDate.year}</span>
           </div>
-          <span className='mr-16'><Button buttonName={'Next'} eventHandler={onNext} /></span>
+          <span className='mr-16'>
+            <Button
+              buttonName={'Next'}
+              eventHandler={onNext}
+            />
+          </span>
         </section>
 
         <section className='grid grid-cols-7 gap-y-4'>
           {Object.entries(daysInWeek).map(([_, v], i) => {
             return (
-              <span key={i} className='font-bold py-2 px-3'>
+              <span
+                key={i}
+                className='font-bold py-2 px-3'
+              >
                 {v[0]}
               </span>
             )

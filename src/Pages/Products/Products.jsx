@@ -13,10 +13,9 @@ const Products = () => {
   const { isVisible, showSnackBar } = ShowSnackbar()
 
   useEffect(() => {
-    if(!isLoading) {
+    if (!isLoading) {
       showSnackBar()
     }
-
   }, [isLoading])
 
   return (
@@ -48,7 +47,10 @@ const Products = () => {
         </section>
       )}
 
-      <SPSnackBar text={message} isVisible={isVisible}  />
+      <SPSnackBar
+        text={message}
+        isVisible={isVisible}
+      />
     </main>
   )
 }

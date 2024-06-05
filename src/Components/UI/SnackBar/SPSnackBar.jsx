@@ -1,4 +1,3 @@
-
 const SPSnackBar = ({ text, isVisible, isError = false }) => {
   return (
     <section

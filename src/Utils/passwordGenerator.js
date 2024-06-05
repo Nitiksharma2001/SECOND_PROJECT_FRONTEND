@@ -6,22 +6,26 @@ const passwordOptions = {
   upperCase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 }
 
-let getRandomChar = function(fromString) {
-    return fromString[Math.floor(Math.random() * fromString.length)];
+let getRandomChar = function (fromString) {
+  return fromString[Math.floor(Math.random() * fromString.length)]
 }
 
-// 
+//
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    [array[i], array[j]] = [array[j], array[i]]
+  }
 }
-  
+
 export const generatePassword = () => {
   const passChars = []
 
-  let passInfo = passwordOptions.num + passwordOptions.specialChar + passwordOptions.lowerCase + passwordOptions.upperCase
+  let passInfo =
+    passwordOptions.num +
+    passwordOptions.specialChar +
+    passwordOptions.lowerCase +
+    passwordOptions.upperCase
 
   // one uppercase, lowercase, digit and special Character
   passChars.push(getRandomChar(passwordOptions.num))
@@ -35,9 +39,9 @@ export const generatePassword = () => {
   }
 
   console.log(passChars.join(''))
-  
+
   shuffleArray(passChars)
   console.log(passChars.join(''))
-  
+
   return passChars.join('')
 }

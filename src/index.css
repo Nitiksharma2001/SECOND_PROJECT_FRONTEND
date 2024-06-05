@@ -4,11 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 #root {
   height: 100vh;
   font-family: 'Roboto', 'sans-serif';
- 
 }
 ::-webkit-scrollbar {
   display: none;
