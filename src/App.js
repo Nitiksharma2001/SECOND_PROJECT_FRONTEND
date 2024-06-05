@@ -7,6 +7,7 @@ import Signup from './Pages/Auth/Signup/Signup'
 import NotFound from './Pages/NotFound/NotFound'
 import Navbar from './Layouts/Navbar/Navbar'
 import Products from "./Pages/Products/Products"
+import SPCalendar from './Components/Calendar/SPCalendar'
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
           <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/calendar' element={<SPCalendar />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
