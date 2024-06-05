@@ -1,5 +1,5 @@
-import Happy from '../../Assets/happy.png'
-import { constants } from '../../Utils/constants'
+import Happy from '../../../Assets/happy.png'
+import { constants } from '../../../Utils/constants'
 const SPButtonPrimary = ({
   showImg,
   showImgEventHandler,

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Button from '../../../Components/Button/Button'
-import SPInput from '../../../Components/Input/SPInput'
+import Button from '../../../Components/UI/Button/Button'
+import SPInput from '../../../Components/UI/Input/SPInput'
 import { useNavigate } from 'react-router-dom'
-import SPLink from '../../../Components/Link/SPLink'
+import SPLink from '../../../Components/UI/Link/SPLink'
 import authImage from '../../../Assets/authImage.png'
 import ShowSnackbar from '../../../Helper/ShowSnackbar'
-import SPSnackBar from '../../../Components/SnackBar/SPSnackBar'
+import SPSnackBar from '../../../Components/UI/SnackBar/SPSnackBar'
 
 const Signup = () => {
   const navigate = useNavigate()

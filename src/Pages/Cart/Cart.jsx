@@ -1,7 +1,7 @@
 import React from 'react'
-import SPImg from '../../Components/Image/SPImg'
+import SPImg from '../../Components/UI/Image/SPImg'
 import FetchCart from '../../Hooks/Cart/FetchCart'
-import CartCard from '../../Components/Card/CartCard'
+import CartCard from '../../Components/UI/Card/CartCard'
 import cartImage from '../../Assets/cartImage.png'
 
 const Cart = () => {

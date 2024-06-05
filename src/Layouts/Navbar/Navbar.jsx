@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { UserContext } from '../../Store/context'
 import { Link, useNavigate } from 'react-router-dom'
-import SPLink from '../../Components/Link/SPLink'
-import Button from '../../Components/Button/Button'
+import SPLink from '../../Components/UI/Link/SPLink'
+import Button from '../../Components/UI/Button/Button'
 function Navbar() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext)
   const navigate = useNavigate()

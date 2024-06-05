@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ProductCard from '../../Components/Card/ProductCard'
+import ProductCard from '../../Components/UI/Card/ProductCard'
 import { ColorRing } from 'react-loader-spinner'
 import FetchProducts from '../../Hooks/Products/FetchProducts'
-import SPSnackBar from '../../Components/SnackBar/SPSnackBar'
+import SPSnackBar from '../../Components/UI/SnackBar/SPSnackBar'
 import ShowSnackbar from '../../Helper/ShowSnackbar'
 const Products = () => {
   const result = FetchProducts()

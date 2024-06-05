@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SPColors } from '../../Utils/colors'
+import { SPColors } from '../../../Utils/colors'
 import SPButtonPrimary from './SPButtonPrimary'
 
 export const Button = ({

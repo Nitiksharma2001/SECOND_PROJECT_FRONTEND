@@ -1,4 +1,4 @@
-import ProductCard from '../../../Components/Card/ProductCard'
+import ProductCard from '../../../Components/UI/Card/ProductCard'
 import FetchProduct from '../../../Hooks/Products/FetchProduct'
 import { useParams } from 'react-router-dom'
 import { ColorRing } from 'react-loader-spinner'
