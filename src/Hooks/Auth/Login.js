@@ -12,8 +12,8 @@ const Login = (email, password) => {
         {
           method: 'GET',
           headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
+            'Content-type': 'application/json; charset=UTF-8'
+          }
         }
       )
       const { data } = await result.json()

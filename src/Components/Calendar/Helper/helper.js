@@ -12,7 +12,7 @@ export const datesComponents = (currentDate) => {
     .map((item, index) => {
       return {
         date: index + 1,
-        currentDate: date.fullDate,
+        currentDate: date.fullDate
       }
     })
 
@@ -20,9 +20,9 @@ export const datesComponents = (currentDate) => {
     dates = [
       {
         date: date.totalDaysInMonth - i,
-        currentDate: date.prevDate,
+        currentDate: date.prevDate
       },
-      ...dates,
+      ...dates
     ]
   }
   let len = dates.length
@@ -31,8 +31,8 @@ export const datesComponents = (currentDate) => {
       ...dates,
       {
         date: i,
-        currentDate: date.nextDate,
-      },
+        currentDate: date.nextDate
+      }
     ]
   }
 

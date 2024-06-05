@@ -16,7 +16,7 @@ const Signup = () => {
   const [userData, setUserData] = useState({
     name: '',
     email: '',
-    password: '',
+    password: ''
   })
 
   const loginEventHandler = async () => {
@@ -27,8 +27,8 @@ const Signup = () => {
         method: 'POST',
         body: JSON.stringify(userData),
         headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
+          'Content-type': 'application/json; charset=UTF-8'
+        }
       })
       const { message } = await result.json()
       setSnackText(message)

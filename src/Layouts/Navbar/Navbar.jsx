@@ -17,20 +17,20 @@ function Navbar() {
       linkName: 'Cart',
       redirectTo: '/cart',
       authRequired: true,
-      type: 'SPLINK',
+      type: 'SPLINK'
     },
     {
       buttonName: 'Log Out',
       authRequired: true,
       type: 'SPBUTTON',
-      eventHandler: handleLogout,
+      eventHandler: handleLogout
     },
     {
       linkName: 'Sign In',
       authRequired: false,
       redirectTo: '/signin',
-      type: 'SPLINK',
-    },
+      type: 'SPLINK'
+    }
   ]
   return (
     <nav className='flex justify-between items-center py-2 px-5 bg-white text-black mb-4 sticky top-0 z-10'>

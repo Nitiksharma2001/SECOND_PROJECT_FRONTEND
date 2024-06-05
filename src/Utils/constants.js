@@ -1,6 +1,6 @@
 export const constants = {
   ADD_TO_CART: 'Add To Cart',
-  REMOVE_FROM_CART: 'remove',
+  REMOVE_FROM_CART: 'remove'
 }
 
 export const monthsNames = {
@@ -15,7 +15,7 @@ export const monthsNames = {
   8: 'September',
   9: 'October',
   10: 'November',
-  11: 'December',
+  11: 'December'
 }
 
 export const daysInWeek = {
@@ -25,5 +25,5 @@ export const daysInWeek = {
   3: 'Wednesday',
   4: 'Thursday',
   5: 'Friday',
-  6: 'Saturday',
+  6: 'Saturday'
 }

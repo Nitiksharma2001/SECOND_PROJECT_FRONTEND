@@ -7,7 +7,7 @@ export const Button = ({
   eventHandler,
   color = SPColors.SPRed,
   type = 'PRIMARY',
-  isLoading = false,
+  isLoading = false
 }) => {
   const [showImg, setShowImg] = useState(false)
 

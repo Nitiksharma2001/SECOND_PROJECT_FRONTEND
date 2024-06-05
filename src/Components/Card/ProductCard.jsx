@@ -27,8 +27,8 @@ const ProductCard = ({ product, eventHandler, hover = true }) => {
         {
           headers: {
             Authorization: `Bearer ${loggedInUser.token}`,
-            'Content-type': 'application/json; charset=UTF-8',
-          },
+            'Content-type': 'application/json; charset=UTF-8'
+          }
         }
       )
     } finally {

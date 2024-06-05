@@ -3,7 +3,7 @@ const passwordOptions = {
   num: '1234567890',
   specialChar: "!@#$%&'()*+,^-./:;<=>?[]_`{~}|",
   lowerCase: 'abcdefghijklmnopqrstuvwxyz',
-  upperCase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  upperCase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 }
 
 let getRandomChar = function (fromString) {
@@ -13,8 +13,7 @@ let getRandomChar = function (fromString) {
 //
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    [array[i], array[j]] = [array[j], array[i]]
+    const j = (Math.floor(Math.random() * (i + 1))[(array[i], array[j])] = [array[j], array[i]])
   }
 }
 

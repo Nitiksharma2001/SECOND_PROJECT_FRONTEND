@@ -6,7 +6,7 @@ import {
   CustomDateVariables,
   dateAfterMonths,
   datesComponents,
-  totalDaysInMonth,
+  totalDaysInMonth
 } from './Helper/helper'
 
 const SPCalendar = () => {

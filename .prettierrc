@@ -7,16 +7,15 @@
   "singleQuote": true,
   "jsxSingleQuote": true,
   "quoteProps": "as-needed",
-  "trailingComma": "es5",
+  "trailingComma": "none",
   "singleAttributePerLine": true,
-  "htmlWhitespaceSensitivity": "strict",
-  "vueIndentScriptAndStyle": true,
-  "proseWrap": "never",
+  "htmlWhitespaceSensitivity": "css",
+  "vueIndentScriptAndStyle": false,
+  "proseWrap": "preserve",
   "insertPragma": false,
   "printWidth": 100,
   "requirePragma": false,
   "tabWidth": 2,
   "useTabs": false,
-  "embeddedLanguageFormatting": "auto",
-  "cursorOffset": 10
+  "embeddedLanguageFormatting": "auto"
 }
